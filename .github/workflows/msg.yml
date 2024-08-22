@@ -23,6 +23,6 @@ jobs:
 
     steps:
     - id: 'notify_google_chat'
-      uses: 'google-github-actions/send-google-chat-webhook@v0.0.2'
+      uses: distributhor/workflow-webhook@v3
       with:
         webhook_url: '${{ secrets.WEBHOOK_URL }}'
