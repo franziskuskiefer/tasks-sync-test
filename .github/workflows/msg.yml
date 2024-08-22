@@ -17,12 +17,9 @@ on:
 jobs:
   notify:
     runs-on: ubuntu-latest
-    permissions:
-      contents: 'read'
-      id-token: 'write'
 
     steps:
     - id: 'notify_google_chat'
-      uses: distributhor/workflow-webhook@v3
-      with:
-        webhook_url: '${{ secrets.WEBHOOK_URL }}'
+      run: |
+        curl -X POST -H 'Content-Type: application/json' '${{ secrets.WEBHOOK_URL }}' \
+        -d '{"text": "Hi!"}'
